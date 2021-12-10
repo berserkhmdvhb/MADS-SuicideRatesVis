@@ -1,0 +1,36 @@
+---
+title: "Vis"
+author: "Hamed Vaheb"
+date: "12/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+judge_url <- "https://storage.googleapis.com/kagglesdsdata/datasets/1130536/1897577/countries.csv?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20211210%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211210T152815Z&X-Goog-Expires=259199&X-Goog-SignedHeaders=host&X-Goog-Signature=32dc8f04f1cb59ef07152f40e428143b157258165999fa389f77b4a238aaa1f79544d7d127f31878d8272d88efc5424643bcba07d46d81ef5399da7c10f5182ed39b27a03856321defcac3d07c22a60addc1325fd7e27fa0bf24a9d432102f15c6c5aa4b4e0ddb9b69e1078a5b3bac45cbeb50ff16df950e1167b7f29b8372e9d394b05e66916786d36ae7eb0af8ce74ec698dea583a7865be80b4143639bf7599cd7b375fd10f7b5fdda06537e029732750ca7b99b431b73514c1f86c9bea48ee1390df7c1cb4ddc5b64dab426842a067b48f3706dc84aec373e1e09f4456efad3f6656f0c4058c6e6624aa93a32cb5a7404b522cee16506494da1279547801"
+types <- readr::read_csv(judge_url, show_col_types = FALSE)
+types
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r cars}
+
+```
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
