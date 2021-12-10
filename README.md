@@ -1,3 +1,3 @@
 # Visualization-Project
 
-[Dataset](https://www.kaggle.com/laowingkin/mbti-study-personality)
+[Dataset](https://www.kaggle.com/yamaerenay/mbtitypes-full)
