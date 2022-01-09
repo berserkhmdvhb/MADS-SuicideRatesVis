@@ -37,7 +37,9 @@ library(RefManageR)
 
 
 # **Introduction**
-This projects aims at extracting patterns and information from the number of suicides that have occurred through years 1985-2016.The [suicide rates dataset](https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016) was pulled from four other datasets linked by time and place, and was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum. The dataset has the following variables (columns):
+This projects aims at extracting patterns and information from the number of suicides that have occurred through years 1985-2016. 
+More precisely, the interested variable is suicide rate, which is the number of suicides that have occured divided by the whole population of the country that each person has committed.
+The [suicide rates dataset](https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016) was pulled from four other datasets linked by time and place, and was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum. The dataset has the following variables (columns):
 
 
 <ol>
@@ -50,25 +52,25 @@ This projects aims at extracting patterns and information from the number of sui
   <li>gdp per capita</li>
 </ol>
 
-
+The sui
 
 ## **Suicide**
 
 
 `r tufte::quote_footer('There is but one truly serious philosophical problem, and that is suicide. Judging whether life is or is not worth living amounts to answering the fundamental question of philosophy. All the rest-- whether or not the world has three dimensions, whether the mind has nine or twelve categories--comes afterwards. Albert Camus')`
 
-So according to this philosopher suicide is a judgement. Understanding how many people make this judgement and also why and how would they come to this judgement can be enthralling.
+So according to this philosopher, suicide is a judgement. Understanding how many people make this judgement and also why and how would they come to this judgement can be enthralling.
 
-Throughout the world, approximately 800,000 people die by suicide every year, accounting for 1.5% of all deaths. Suicide is the 10th leading cause of death in North America and the foremost cause of death worldwide among persons 15 to 24 years of age.
+Throughout the world, approximately 800,000 people die by suicide every year, accounting for 1.5% of all deaths. Suicide is the tenth leading cause of death in North America and the foremost cause of death worldwide among persons 15 to 24 years of age.
 [@suic]
 
-Raising awareness of public about mental health help in detecting and preventing mental disorders. And this would also help in preventing suicide since suicide usually occurs after a major depressive episode. However, suicide can have other reasons, such as substance uses and even it can occur in absence of any psychiatric disorder. Therefore, suicide requires more care and attention, which can be achieved by understanding its influencing factors. 
+Raising awareness of public about mental health helps in detecting and preventing mental disorders. It would also help in preventing suicide since suicide usually occurs after a major depressive episode. However, suicide can have other reasons, such as substance uses and even it can occur in absence of any psychiatric disorder. Therefore, suicide requires more care and attention, which can be achieved by understanding its influencing factors. 
 [@suic] categorizes major factors in the following figure:
 
 ![Suicide Influencing Factors](factors.jpg)
 
-All the factors are categorized by age level. This means that age is significant. Moreover, from economic factors, GDP per capita is one of the income quality metrics which measure the distribution of income between rich and poor. Therefore, GDP per capita can be regarded as one of the economic factors stated in the previous figure.
-We aim at providing insights on effect of age, continent, and Gross Domestic Product (GDP) per capita, which are presented in the sections [Age Analysis](#age), [Continent Gradient](#continent), and [GDP Animation](#gdp). We also provide two hypothesis tests to draw conclusions on data.
+All the factors are categorized by age level. This means that age is significant. Moreover, from economic factors in the previous figure, GDP per capita can be regarded as one of the main ones. GDP per Captia is one of the income quality metrics which measure the distribution of income between rich and poor.
+We aim at providing insights on effect of age, continent, and Gross Domestic Product (GDP) per capita on suicide rates, which are presented in the sections [Age Analysis](#age), [Continent Gradient](#continent), and [GDP Animation](#gdp). We also provide two hypothesis tests to draw conclusions on data.
 
 
   
@@ -333,19 +335,17 @@ For this purpose, this density is provided in the following plot.
 #ggplotly(p)
 
 
-continent <- data %>%
-  group_by(continent, year) %>%
-  summarize(suicide_rates = (sum(as.numeric(suicides_no)) /                     sum(as.numeric(population))) * 100000) %>%
-  arrange(suicide_rates)
+#continent <- data %>%
+#  group_by(continent, year) %>%
+#  summarize(suicide_rates = #(sum(as.numeric(suicides_no))/sum(as.numeric(population))) * 100000) %>%
+#  arrange(suicide_rates)
 
-data %>%
+continent <- data %>%
   group_by(continent, age, sex) %>%
   summarize(n = n(), 
             suicides = sum(as.numeric(suicides_no)), 
             population = sum(as.numeric(population)), 
             suicide_rates = (suicides / population) * 100000) 
-
-
 ```
 
 
@@ -406,7 +406,7 @@ data %>%
 
 
 
-We observe that the density reaches its highest values in the continents Europe, Oceania, and Asia. Moreover, suicide rates of values greater than 20 are more probable in Europe than other continents.
+We observe that the density has higher values in the continents Europe, Oceania, and Asia. Moreover, suicide rates of values greater than 20 are more probable in Europe than other continents.
 
 In order to understand the role of continent and age together, the following plot is provided.
 
@@ -447,7 +447,8 @@ data %>%
 ```
 
 
-The plot is in agreement with the previous one since only the continents Oceania, Europe, and Asia have suicide rates that are higher than mean for all age groups. It can also be observed that the continent that has most suicide rates for people greater than 75 years old (which usually have the highest rate) is Asia.
+The plot is in agreement with the previous one since only the continents Oceania, Europe, and Asia have suicide rates that are higher than mean for all age groups. It can also be observed that the continent that has most suicide rates for people greater than 75 years old (which usually have the highest rate) is Asia. Asia has the highest diversity of suicide rates among different age groups.
+Africa has the least suicide rates among other continents, which can be either the truth or stems from lack of proper information spread in there.
 
 
 
@@ -614,7 +615,7 @@ Since the test statistic $T(X) = 10.9$ is greater than the critical value $u = 0
 
 Based on the plots and tests, we concluded that elderly people have higher suicide rates than youth. Moreover, the continents Oceania, Europe, and Asia have the higher rates than other counties, with Europe having the highest density. 
 
-This study can be extended in various ways. One can go from continents to countries and visualize the suicide rates and draw conclusions based on countries. Moreover, the dataset lacks the reason of suicide. If the reason would be also recorded, then understanding suidice and preventing it would be much more effective.
+This study can be extended in various ways. One can go from continents to countries and visualize the suicide rates and draw conclusions based on countries. Moreover, the dataset lacks the reason of suicide. If the reason would be also recorded, then understanding suicide and preventing it would be much more effective.
 
 
 
