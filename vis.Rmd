@@ -1,7 +1,7 @@
 ---
 title: "Suicide Rates Visualization Project"
 author: 'Hamed Vaheb'
-date: '01 Dec 2021'
+date: '09 Jan 2021'
 output:
   html_document:
     number_sections: true
@@ -22,11 +22,11 @@ library(rworldmap) # quick country-level heat maps
 library(gridExtra) # plots
 library(broom) # significant trends within countries
 library(reticulate) #for interacting with Python
-library(plotly)
-library(ggridges) #for drwaing desnity gradient
-library(dplyr)
+library(plotly) #for drawing interatctive plots
+library(ggridges) #for drawing desnity gradient
+library(dplyr) 
 library(shades) #edit colours in natural ways:
-library(bibtex)
+library(bibtex) #for referencing articles
 
 
 
