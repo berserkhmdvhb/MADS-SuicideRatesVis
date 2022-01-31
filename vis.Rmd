@@ -54,10 +54,14 @@ The [suicide rates dataset](https://www.kaggle.com/russellyates88/suicide-rates-
 
 The sui
 
+> Good to include a table of contents - RMarkdown can actually do that with links (should explain next time)
+
 ## **Suicide**
 
 
 `r tufte::quote_footer('There is but one truly serious philosophical problem, and that is suicide. Judging whether life is or is not worth living amounts to answering the fundamental question of philosophy. All the rest-- whether or not the world has three dimensions, whether the mind has nine or twelve categories--comes afterwards. Albert Camus')`
+
+> It's a pity that this didn't come out as nice quote in the rendering, might be local issues.
 
 So according to this philosopher, suicide is a judgement. Understanding how many people make this judgement and also why and how would they come to this judgement can be enthralling.
 
@@ -73,8 +77,8 @@ All the factors are categorized by age level. This means that age is significant
 We aim at providing insights on effect of age, continent, and Gross Domestic Product (GDP) per capita on suicide rates, which are presented in the sections [Age Analysis](#age), [Continent Gradient](#continent), and [GDP Animation](#gdp). We also provide two hypothesis tests to draw conclusions on data.
 
 
-  
-   
+> I'll count this as the additional display item requested.   
+
 
 
 ## **Importing and Cleaning**
@@ -302,7 +306,7 @@ grid.arrange(gt1, gt2, ncol=2)
 ```
 
 
-
+> This is a very effective plot, well arranged and informative on both absolute numbers (left) and a distribution (right  )
 
 
 
@@ -411,7 +415,7 @@ We observe that the density has higher values in the continents Europe, Oceania,
 In order to understand the role of continent and age together, the following plot is provided.
 
 
-
+> This figure certainly looks nice but I'm not sure if it's the best explanation - I find "density of rates" a difficult variable to interpret and the Rate appears to be duplicated in color and x-axis. I don't understand how a rate can be <0 (see Africa).
 
 
 
@@ -507,6 +511,8 @@ ggplotly(p)
 
 ## Hypothesis Tests (Python) {#ht}
 
+> The right way for this part would have been to also include the virtual environment in the git repo (didn't discuss this). 
+
 ```{python}
 #imports
 import pandas as pd
@@ -582,7 +588,7 @@ grouop_data_male=grouop_data.iloc[6:,:]
 ```
 Since the test statistic $T(X) = 14.76$ is greater than the critical value $u = 0.35$, we'll reject the null hypothesis and increase our confidence in $H_1$, concluding that mean of males is greater than females.
 
-
+> You could have included the results of the test as variables in the text directly.
 
 
 ### Youth vs Elderly
@@ -622,3 +628,5 @@ This study can be extended in various ways. One can go from continents to countr
 # References
 
 <div id="refs"></div>
+
+> This a very mature contribution using different technologies and set up. The subject well is addressed with high quality graphs. Stats tests are  also included. Extra things were tried, incl using Python and animation. 
