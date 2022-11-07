@@ -1,16 +1,17 @@
 ---
 title: "Suicide Rates Visualization Project"
-author: 'Hamed Vaheb'
-date: '09 Jan 2021'
+author: "Hamed Vaheb"
+date: "09 Jan 2021"
 output:
   html_document:
-    number_sections: true
-    toc: true
-    code_folding: "hide"
+    number_sections: yes
+    toc: yes
+    code_folding: hide
     theme: readable
     highlight: haddock
+  pdf_document:
+    toc: yes
 bibliography: references.bib
-#csl:asm.csl
 ---
 
 ```{r message = FALSE, warning = FALSE}
@@ -22,10 +23,10 @@ library(rworldmap) # quick country-level heat maps
 library(gridExtra) # plots
 library(broom) # significant trends within countries
 library(reticulate) #for interacting with Python
-library(plotly) #for drawing interatctive plots
-library(ggridges) #for drawing desnity gradient
+library(plotly) #for drawing interactive plots
+library(ggridges) #for drawing density gradient
 library(dplyr) 
-library(shades) #edit colours in natural ways:
+library(shades) #edit colors in natural ways:
 library(bibtex) #for referencing articles
 
 
@@ -52,14 +53,13 @@ The [suicide rates dataset](https://www.kaggle.com/russellyates88/suicide-rates-
   <li>gdp per capita</li>
 </ol>
 
-The sui
 
 > Good to include a table of contents - RMarkdown can actually do that with links (should explain next time)
 
 ## **Suicide**
 
+> `r tufte::quote_footer('There is but one truly serious philosophical problem, and that is suicide. Judging whether life is or is not worth living amounts to answering the fundamental question of philosophy. All the rest-- whether or not the world has three dimensions, whether the mind has nine or twelve categories--comes afterwards. Albert Camus')`
 
-`r tufte::quote_footer('There is but one truly serious philosophical problem, and that is suicide. Judging whether life is or is not worth living amounts to answering the fundamental question of philosophy. All the rest-- whether or not the world has three dimensions, whether the mind has nine or twelve categories--comes afterwards. Albert Camus')`
 
 > It's a pity that this didn't come out as nice quote in the rendering, might be local issues.
 
@@ -123,9 +123,9 @@ global_average <- (sum(as.numeric(data$suicides_no)) / sum(as.numeric(data$popul
 ```
 
 
-# Three Major Plots 
+# **Three Major Plots** 
 
-## Age Analysis {#age}
+## **Age Analysis** {#age}
 As seen in the diagram of influencing factors, age played an important role in suicide. In the following plot, we draw to diagrams side by side. 
 
 
@@ -326,7 +326,7 @@ grid.arrange(gt1, gt2, ncol=2)
 
 
 
-## Continent Gradient {#continent}
+## **Continent Gradient** {#continent}
 Detecting the density of suicide rates for each continent can be enthralling.
 For this purpose, this density is provided in the following plot.
 
@@ -463,7 +463,7 @@ Africa has the least suicide rates among other continents, which can be either t
 
 
 
-## GDP Animation {#gdp}
+## **GDP Animation** {#gdp}
 
 Observing the role of GDP per capita and continent together would be enthralling. It would be more insightful to observe the dynamic of this role over years. Hence, the following animation is provided which shows how suicide rates change for each continent over years.
 
@@ -509,7 +509,7 @@ ggplotly(p)
 
 
 
-## Hypothesis Tests (Python) {#ht}
+## **Hypothesis Tests** (Python) {#ht}
 
 > The right way for this part would have been to also include the virtual environment in the git repo (didn't discuss this). 
 
@@ -617,7 +617,7 @@ independent_ttest(smp1, smp2, 0.05)
 
 Since the test statistic $T(X) = 10.9$ is greater than the critical value $u = 0.47$, we'll reject the null hypothesis and increase our confidence in $H_1$, concluding that mean of elderly is greater than youth.
 
-# Conclusion
+# **Conclusion**
 
 Based on the plots and tests, we concluded that elderly people have higher suicide rates than youth. Moreover, the continents Oceania, Europe, and Asia have the higher rates than other counties, with Europe having the highest density. 
 
@@ -625,7 +625,7 @@ This study can be extended in various ways. One can go from continents to countr
 
 
 
-# References
+# **References**
 
 <div id="refs"></div>
 
