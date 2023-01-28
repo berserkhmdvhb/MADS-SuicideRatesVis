@@ -1,4 +1,4 @@
-# Visualization-Project
+# Visualization-Project  <img src="logo.png" align="right" style="width: 25%;"/>
 
 [Dataset](https://www.kaggle.com/yamaerenay/mbtitypes-full)
 
